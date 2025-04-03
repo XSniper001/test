@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# List of Docker images
+images=(
+  "rabbitmq:3-management-alpine"
+  "iriswebapp_db:v2.4.7"
+  "iriswebapp_app:v2.4.7"
+  "ghcr.io/dfir-iris/iriswebapp_db:v2.4.19"
+  "ixdotai/smtp"
+  "valkey/valkey:7.2"
+  "mariadb:10.11"
+  "ghcr.io/shuffle/shuffle-frontend:1.4.2"
+  "ghcr.io/shuffle/shuffle-orborus:1.4.0"
+  "opensearchproject/opensearch:2.14.0"
+  "wazuh/wazuh-manager:4.9.2"
+  "wazuh/wazuh-indexer:4.9.2"
+  "wazuh/wazuh-dashboard:4.9.2"
+)
+
+# Loop through the images and pull them
+for image in "${images[@]}"; do
+  echo "Pulling image: $image"
+  docker pull "$image"
+done
